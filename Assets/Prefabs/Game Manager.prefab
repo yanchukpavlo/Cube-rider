@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2680691214615470154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2245046043460369784}
+  - component: {fileID: 7818545328685418599}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2245046043460369784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680691214615470154}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7818545328685418599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680691214615470154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce5492d872924445a1e4587762c5379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundPref: {fileID: 5193890864513436389, guid: a6097928b5412bb46ba3b03770d4eafc, type: 3}
+  playerPref: {fileID: 8556792386504951381, guid: 344de7843f45c8c4ea5f96c6b773efef, type: 3}
+  finishPref: {fileID: 5470247719314135558, guid: 4b99380428fe61640970effd0ac1fd51, type: 3}
+  coinPref: {fileID: 8724199816448419256, guid: 837599acb6f0e6743a3b0d04d4085749, type: 3}
+  levelLength: 150
+  turnsCount: 3
+  offsetZ: 5
+  bonusObstacleZ: 5
+  distanceBetweenBox: 5
+  distanceBetweenObstacle: 8
+  distanceBetweenCoim: 15
+  boxHeight: 1
+  additionalBoxPref: {fileID: 5859631897537395627, guid: 9a8f30d042cbbd048ade7f066e1a9b47, type: 3}
+  obstaclePrefs:
+  - {fileID: 6813376185259771064, guid: 58a2db88fea7b0e4989d290af56190df, type: 3}
+  - {fileID: 5105479596155772934, guid: e517ef0ffbd4b664da279a9eb713a0f9, type: 3}
+  - {fileID: 6684694517982796642, guid: 3b7201a29d83bbe4686d52fd8de87c7c, type: 3}
+  - {fileID: 1016136549643572874, guid: 0a301ca58183a9248a170c85192c592a, type: 3}
+  - {fileID: 7183014267427781326, guid: 0a2bce5308c002440a7b2dcdf4100c64, type: 3}
+  playerBoxMaterials:
+  - {fileID: 2100000, guid: a46ddefb78a484643af07aed081bf055, type: 2}
+  - {fileID: 2100000, guid: 0744bcab18e19e444b1498ebfd1b47b1, type: 2}
+  - {fileID: 2100000, guid: 98e3d348c55e6a244b34dd502d9ed4cc, type: 2}
+  - {fileID: 2100000, guid: 8f1ad6ca6c806374eb625b775345bb99, type: 2}
+  - {fileID: 2100000, guid: d9a95648e82caa7459f1106df0da4af2, type: 2}
+  - {fileID: 2100000, guid: de88005d1f5e1554494e69b81da77235, type: 2}
+  - {fileID: 2100000, guid: c3c8b2e7507849f43a31e15b9d7c3dc2, type: 2}
+  - {fileID: 2100000, guid: 533b4146d42e51242a9a93ccd869a855, type: 2}
+  - {fileID: 2100000, guid: 769d192c127c1e64da6f0234ec9b9969, type: 2}
+  - {fileID: 2100000, guid: 38eaf5109156569489bf8f2929fd35a8, type: 2}
+  - {fileID: 2100000, guid: 42baaf87d7ee9524dabc246e0cdf08e7, type: 2}
+  - {fileID: 2100000, guid: d1264135f8ef85d4c8e48104847adcb2, type: 2}
+  - {fileID: 2100000, guid: e4663e6603a7d1345804b95761dbd38f, type: 2}
+  - {fileID: 2100000, guid: 4eab6b53002d5de45b5530e6eb17d953, type: 2}
+  - {fileID: 2100000, guid: 9f345e69573084a44b4366cc49cdcd63, type: 2}
+  - {fileID: 2100000, guid: ba2226aa273afb94eb9a2b21f04369a8, type: 2}
