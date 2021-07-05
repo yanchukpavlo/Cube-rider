@@ -7,6 +7,8 @@ public class PlayerMove : MonoBehaviour
 {
     [Header("Move")]
     [SerializeField] float speed;
+    [SerializeField] float speedAside = 2;
+    [SerializeField] float turnSmoothTime = 0.1f;
 
     [Header("Check")]
     [SerializeField] Transform road—heckingForward;
@@ -20,7 +22,10 @@ public class PlayerMove : MonoBehaviour
     VariableJoystick joystick;
     Rigidbody rb;
 
+    public float targetAngle = 0;
+    float turnSmoothVelocity;
     bool isMove;
+    bool isCheckTurn = true;
     bool canMoveR = true;
     bool canMoveL = true;
 
@@ -33,7 +38,7 @@ public class PlayerMove : MonoBehaviour
 
         isMove = GameManager.instance.InGame;
         float width = GameManager.instance.LevelWidth;
-        road—heckingForward.position = road—heckingForward.position + transform.forward * width / 2;
+        road—heckingForward.position = road—heckingForward.position + transform.forward * (width * 2/3);
         road—heckingRight.position = road—heckingRight.position + transform.right * width * 3;
         road—heckingLeft.position = road—heckingLeft.position + -transform.right * width * 3;
     }
@@ -80,28 +85,34 @@ public class PlayerMove : MonoBehaviour
     {
         float horizontal = joystick.Horizontal;
 
-        if (!Physics.Raycast(road—heckingForward.position, Vector3.down, rayLength, checkLayer))
+        if (isCheckTurn)
         {
-            Debug.Log("Need to turn.");
+            if (!Physics.Raycast(road—heckingForward.position, Vector3.down, rayLength, checkLayer))
+            {
+                Debug.Log("Need to turn.");
 
-            if (Physics.Raycast(road—heckingRight.position, Vector3.down, rayLength, checkLayer))
-            {
-                Debug.Log("Turn right.");
-                transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + 90, 0);
-            }
-            else if (Physics.Raycast(road—heckingLeft.position, Vector3.down, rayLength, checkLayer))
-            {
-                Debug.Log("Turn left.");
-                transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y - 90, 0);
-            }
-            else
-            {
-                Debug.LogError("Has nowhere to turn!");
-                StopMove();
-                Debug.Break();
+                if (Physics.Raycast(road—heckingRight.position, Vector3.down, rayLength, checkLayer))
+                {
+                    Debug.Log("Turn right.");
+                    //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + 90, 0);
+                    targetAngle += 90;
+                }
+                else if (Physics.Raycast(road—heckingLeft.position, Vector3.down, rayLength, checkLayer))
+                {
+                    Debug.Log("Turn left.");
+                    //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y - 90, 0);
+                    targetAngle -= 90;
+                }
+                else
+                {
+                    Debug.LogError("Has nowhere to turn!");
+                    StopMove();
+                    Debug.Break();
+                }
+
+                StartCoroutine(WaitToCheckTurnOn());
             }
         }
-
 
         canMoveR = Physics.Raycast(ground—heckingRight.position, Vector3.down, rayLength, checkLayer);
         canMoveL = Physics.Raycast(ground—heckingLeft.position, Vector3.down, rayLength, checkLayer);
@@ -115,15 +126,28 @@ public class PlayerMove : MonoBehaviour
             horizontal = 0;
         }
 
-        Vector3 direction = transform.right * horizontal + transform.forward;
+        Vector3 direction = transform.right * horizontal * speedAside + transform.forward;
 
         //rb.velocity = direction * Time.deltaTime * speed;
         rb.MovePosition(transform.localPosition + (direction * Time.deltaTime * speed));
+
+        if (!isCheckTurn)
+        {
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0, angle, 0);
+        }
     }
 
     void StopMove()
     {
         rb.velocity = Vector3.zero;
         isMove = false;
+    }
+
+    IEnumerator WaitToCheckTurnOn()
+    {
+        isCheckTurn = false;
+        yield return new WaitForSeconds(0.75f);
+        isCheckTurn = true;
     }
 }

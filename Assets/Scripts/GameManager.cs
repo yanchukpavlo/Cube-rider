@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] float levelLength = 200;
     float levelWidth = 5.3f;
     [SerializeField] int turnsCount = 2;
-    [SerializeField] float offsetZ = 5;
+    [SerializeField] float offsetForwardZ = 7;
+    [SerializeField] float offsetBackZ = 5;
     [SerializeField] float bonusObstacleZ = 2;
     [SerializeField] float distanceBetweenBox = 5;
     [SerializeField] float distanceBetweenObstacle = 8;
@@ -116,7 +117,7 @@ public class GameManager : MonoBehaviour
         bool inRight = false;
         bool inLeft = false;
         float roadLength = levelLength / (turnsCount + 1);
-        float maxZ = roadLength - offsetZ * 2;
+        float maxZ = roadLength - offsetForwardZ- offsetBackZ;
 
         for (int i = 0; i <= turnsCount; i++)
         {
@@ -124,9 +125,9 @@ public class GameManager : MonoBehaviour
             ground.transform.localScale = new Vector3(levelWidth, 1, roadLength);
             ground.transform.position = Vector3.zero;
 
-            float zBox = offsetZ;
-            float zOffset = offsetZ + bonusObstacleZ;
-            float zCoin = offsetZ;
+            float zBox = offsetForwardZ;
+            float zOffset = offsetForwardZ + bonusObstacleZ;
+            float zCoin = offsetForwardZ;
 
             if (i == 0)
             {

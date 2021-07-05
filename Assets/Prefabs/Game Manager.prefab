@@ -47,13 +47,14 @@ MonoBehaviour:
   playerPref: {fileID: 8556792386504951381, guid: 344de7843f45c8c4ea5f96c6b773efef, type: 3}
   finishPref: {fileID: 5470247719314135558, guid: 4b99380428fe61640970effd0ac1fd51, type: 3}
   coinPref: {fileID: 8724199816448419256, guid: 837599acb6f0e6743a3b0d04d4085749, type: 3}
-  levelLength: 150
+  levelLength: 200
   turnsCount: 3
-  offsetZ: 5
+  offsetForwardZ: 7
+  offsetBackZ: 5
   bonusObstacleZ: 5
   distanceBetweenBox: 5
   distanceBetweenObstacle: 8
-  distanceBetweenCoim: 15
+  distanceBetweenCoin: 15
   boxHeight: 1
   additionalBoxPref: {fileID: 5859631897537395627, guid: 9a8f30d042cbbd048ade7f066e1a9b47, type: 3}
   obstaclePrefs:

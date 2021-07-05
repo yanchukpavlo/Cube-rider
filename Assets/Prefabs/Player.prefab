@@ -461,6 +461,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  speedAside: 1.5
+  turnSmoothTime: 0.2
   "road\u0421heckingForward": {fileID: 8556792385202918649}
   "road\u0421heckingRight": {fileID: 8556792385465245504}
   "road\u0421heckingLeft": {fileID: 8556792384616606176}
@@ -470,6 +472,7 @@ MonoBehaviour:
   checkLayer:
     serializedVersion: 2
     m_Bits: 64
+  targetAngle: 0
 --- !u!65 &8556792386504951385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -593,9 +596,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3d Person Player
       objectReference: {fileID: 0}
+    - target: {fileID: 495209687280280296, guid: 654f18de153473646980d8c97a6538bf, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 495209687280280299, guid: 654f18de153473646980d8c97a6538bf, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 495209687280280299, guid: 654f18de153473646980d8c97a6538bf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 495209687280280299, guid: 654f18de153473646980d8c97a6538bf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 495209687280280299, guid: 654f18de153473646980d8c97a6538bf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 495209687280280299, guid: 654f18de153473646980d8c97a6538bf, type: 3}
       propertyPath: m_LocalPosition.x
